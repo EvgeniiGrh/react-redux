@@ -8,16 +8,16 @@ import HeaderLink from './HeaderLink';
 import Banner from './banner.jpg';
 import messages from './messages';
 
-class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class Header extends React.Component {
   render() {
     return (
       <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
+        <A href="https://weather.com/ru-BY/weather/today/l/BOXX0005:1:BO">
+          <Img src={Banner} alt="react-weather - Logo" />
         </A>
         <NavBar>
           <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
+            <FormattedMessage {...messages.cities} />
           </HeaderLink>
           <HeaderLink to="/features">
             <FormattedMessage {...messages.features} />

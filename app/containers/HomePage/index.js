@@ -1,9 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -12,12 +6,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+import injectReducer from '../../utils/injectReducer';
+import injectSaga from '../../utils/injectSaga';
 import { makeSelectRepos, makeSelectLoading, makeSelectError } from 'containers/App/selectors';
-import H2 from 'components/H2';
-import ReposList from 'components/ReposList';
-import AtPrefix from './AtPrefix';
+import H2 from '../../components/H2';
+import ReposList from '../../components/ReposList';
 import CenteredSection from './CenteredSection';
 import Form from './Form';
 import Input from './Input';
@@ -29,11 +22,8 @@ import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
-  componentDidMount() {
+export class HomePage extends React.PureComponent {
+    componentDidMount() {
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
     }
@@ -50,17 +40,14 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     return (
       <article>
         <Helmet>
-          <title>Home Page</title>
-          <meta name="description" content="A React.js Boilerplate application homepage" />
+          <title>City</title>
+          <meta name="description" content="A React.js Weather application Citypage" />
         </Helmet>
         <div>
           <CenteredSection>
             <H2>
               <FormattedMessage {...messages.startProjectHeader} />
             </H2>
-            <p>
-              <FormattedMessage {...messages.startProjectMessage} />
-            </p>
           </CenteredSection>
           <Section>
             <H2>
@@ -69,13 +56,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             <Form onSubmit={this.props.onSubmitForm}>
               <label htmlFor="username">
                 <FormattedMessage {...messages.trymeMessage} />
-                <AtPrefix>
-                  <FormattedMessage {...messages.trymeAtPrefix} />
-                </AtPrefix>
                 <Input
                   id="username"
                   type="text"
-                  placeholder="mxstbr"
+                  placeholder="Minsk"
                   value={this.props.username}
                   onChange={this.props.onChangeUsername}
                 />
