@@ -15,7 +15,7 @@ class App extends Component {
 
 function mapStateToProps (state) {
   return {
-    cities: state.cities
+    cities: state.cityReducer.cities
   }
 }
 

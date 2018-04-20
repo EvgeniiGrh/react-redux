@@ -1,19 +1,6 @@
-const initialState = {
-  cities: [
-    {
-      cityName: 'Minsk',
-      id: 1,
-      country: "Belarus"
-    },
-    {
-      cityName: 'Paris',
-      id: 1,
-      country: "France"
-    }
-  ],
+import { combineReducers } from 'redux'
+import cityReducer from './cityReducer'
 
-  };
-
-export default function cityState(state = initialState) {
-  return state;
-}
+export default combineReducers({
+  cityReducer: cityReducer
+})
